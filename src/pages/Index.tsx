@@ -515,6 +515,33 @@ const Index = () => {
 
             <Card>
               <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Icon name="Map" size={24} className="text-primary" />
+                  Как нас найти
+                </CardTitle>
+                <CardDescription>г. Липецк, ул. Тельмана, д. 92, оф. 1</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="w-full h-[400px] rounded-lg overflow-hidden border border-border">
+                  <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A2d8c0e8f8c8f8f8f8f8f8f8f8f8f8f8f&amp;source=constructor&ll=39.569814%2C52.625070&z=16&pt=39.569814,52.625070,pm2rdm"
+                    width="100%"
+                    height="400"
+                    frameBorder="0"
+                    allowFullScreen
+                    className="w-full h-full"
+                    title="Карта расположения офиса"
+                  />
+                </div>
+                <div className="mt-4 flex items-start gap-2 text-sm text-muted-foreground">
+                  <Icon name="MapPin" size={18} className="text-primary mt-0.5 flex-shrink-0" />
+                  <span>398001, Липецкая область, г. Липецк, ул. Тельмана, д. 92, офис 1</span>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle>Отправить сообщение</CardTitle>
                 <CardDescription>Заполните форму, и мы свяжемся с вами в ближайшее время</CardDescription>
               </CardHeader>
