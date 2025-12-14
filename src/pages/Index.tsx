@@ -493,12 +493,19 @@ const Index = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-primary/20">
+                      <img 
+                        src="https://cdn.poehali.dev/files/dsc_9278.jpg" 
+                        alt="Воронов Сергей Викторович"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <p className="text-sm text-muted-foreground mb-1">Председатель РООР КЦРОС</p>
-                    <p className="text-sm text-muted-foreground mb-1">по Липецкой области</p>
+                    <p className="text-sm text-muted-foreground mb-2">по Липецкой области</p>
                     <p className="font-semibold text-lg">Воронов Сергей Викторович</p>
                   </div>
-                  <div className="flex items-center gap-2 pt-2">
+                  <div className="flex items-center justify-center gap-2 pt-2">
                     <Icon name="Phone" size={18} className="text-primary" />
                     <span className="text-muted-foreground">+7-919-161-00-30</span>
                   </div>
