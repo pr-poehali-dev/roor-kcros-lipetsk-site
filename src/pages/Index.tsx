@@ -56,9 +56,7 @@ const Index = () => {
                 className={`text-sm font-medium transition-colors hover:text-primary ${
                   activeSection === 'about' ? 'text-primary' : 'text-white'
                 }`}
-              >
-                О организации
-              </button>
+              >Об организации</button>
               <button
                 onClick={() => setActiveSection('registry')}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
