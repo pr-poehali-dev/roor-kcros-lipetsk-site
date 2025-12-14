@@ -470,12 +470,12 @@ const Index = () => {
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
                     398001, Липецкая область,<br />
-                    г. Липецк, пл. Революции, д. 1
+                    г. Липецк, ул. Тельмана, д. 92, оф. 1
                   </p>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <Icon name="Phone" size={18} className="text-primary" />
-                      <span className="text-muted-foreground">+7 (4742) 12-34-56</span>
+                      <span className="text-muted-foreground">+7-919-161-00-30</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Icon name="Mail" size={18} className="text-primary" />
@@ -488,26 +488,19 @@ const Index = () => {
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Icon name="Clock" size={24} className="text-primary" />
-                    Режим работы
+                    <Icon name="User" size={24} className="text-primary" />
+                    Руководство
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Понедельник - Четверг</span>
-                    <span className="font-medium">9:00 - 18:00</span>
+                <CardContent className="space-y-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">Председатель РООР КЦРОС</p>
+                    <p className="text-sm text-muted-foreground mb-1">по Липецкой области</p>
+                    <p className="font-semibold text-lg">Воронов Сергей Викторович</p>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Пятница</span>
-                    <span className="font-medium">9:00 - 17:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Обед</span>
-                    <span className="font-medium">13:00 - 14:00</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Суббота, Воскресенье</span>
-                    <span className="font-medium text-destructive">Выходной</span>
+                  <div className="flex items-center gap-2 pt-2">
+                    <Icon name="Phone" size={18} className="text-primary" />
+                    <span className="text-muted-foreground">+7-919-161-00-30</span>
                   </div>
                 </CardContent>
               </Card>
@@ -586,7 +579,7 @@ const Index = () => {
               <ul className="space-y-2 text-sm text-gray-300">
                 <li className="flex items-center gap-2">
                   <Icon name="Phone" size={16} />
-                  +7 (4742) 12-34-56
+                  +7-919-161-00-30
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="Mail" size={16} />
