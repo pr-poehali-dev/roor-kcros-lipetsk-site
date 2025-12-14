@@ -11,17 +11,17 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const registryData = [
-    { id: 1, name: 'ООО "Техстройинвест"', inn: '4825012345', status: 'Активно', category: 'Строительство', date: '15.01.2024' },
-    { id: 2, name: 'АО "Липецкметалл"', inn: '4826023456', status: 'Активно', category: 'Металлургия', date: '20.02.2024' },
-    { id: 3, name: 'ИП Сидоров А.В.', inn: '482701234567', status: 'Приостановлено', category: 'Торговля', date: '10.03.2024' },
-    { id: 4, name: 'ООО "Агропромышленный холдинг"', inn: '4828034567', status: 'Активно', category: 'Сельское хозяйство', date: '05.04.2024' },
-    { id: 5, name: 'ООО "Инновационные технологии"', inn: '4829045678', status: 'Активно', category: 'IT и инновации', date: '12.05.2024' },
+    { id: 1, name: 'ЧОП "Барс-Липецк"', inn: '4825012345', status: 'Активно', category: 'Частная охрана', date: '15.01.2024' },
+    { id: 2, name: 'ООО "Охранное предприятие Щит"', inn: '4826023456', status: 'Активно', category: 'Физическая охрана', date: '20.02.2024' },
+    { id: 3, name: 'ЧОП "Сокол"', inn: '482701234567', status: 'Приостановлено', category: 'Частная охрана', date: '10.03.2024' },
+    { id: 4, name: 'ООО "Безопасность-48"', inn: '4828034567', status: 'Активно', category: 'Охранные системы', date: '05.04.2024' },
+    { id: 5, name: 'ЧОП "Страж"', inn: '4829045678', status: 'Активно', category: 'Частная охрана', date: '12.05.2024' },
   ];
 
   const newsData = [
-    { id: 1, title: 'Заседание координационного совета РООР КЦРОС', date: '10.12.2024', excerpt: 'Состоялось очередное заседание координационного совета по вопросам развития малого и среднего предпринимательства.' },
-    { id: 2, title: 'Обновление реестра организаций', date: '05.12.2024', excerpt: 'Внесены изменения в реестр организаций Липецкой области. Обновлено 47 записей.' },
-    { id: 3, title: 'Семинар для предпринимателей', date: '01.12.2024', excerpt: 'Приглашаем на семинар по вопросам регистрации и ведения бизнеса в регионе.' },
+    { id: 1, title: 'Заседание координационного совета РООР КЦРОС', date: '10.12.2024', excerpt: 'Состоялось очередное заседание координационного совета по вопросам развития охранной отрасли в регионе.' },
+    { id: 2, title: 'Обновление реестра охранных организаций', date: '05.12.2024', excerpt: 'Внесены изменения в реестр охранных предприятий Липецкой области. Обновлено 47 записей.' },
+    { id: 3, title: 'Семинар по новым требованиям к лицензированию', date: '01.12.2024', excerpt: 'Приглашаем руководителей охранных предприятий на семинар по актуальным вопросам лицензирования.' },
   ];
 
   const filteredRegistry = registryData.filter(item =>
@@ -36,10 +36,10 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Icon name="Building2" size={32} className="text-primary" />
+              <Icon name="Shield" size={32} className="text-primary" />
               <div>
                 <h1 className="text-xl font-bold">РООР КЦРОС</h1>
-                <p className="text-sm text-gray-300">Липецкая область</p>
+                <p className="text-sm text-gray-300">Координационный центр руководителей охранных структур</p>
               </div>
             </div>
             <nav className="hidden md:flex gap-6">
@@ -94,10 +94,10 @@ const Index = () => {
             <section className="bg-gradient-to-br from-primary/10 to-accent/5 rounded-lg p-8 md:p-12">
               <div className="max-w-3xl">
                 <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                  Региональное отделение общероссийской организации
+                  Региональное отраслевое объединение работодателей
                 </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Координационный центр развития общественных связей Липецкой области
+                  Координационный центр руководителей охранных структур Липецкой области
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Button onClick={() => setActiveSection('registry')} size="lg" className="shadow-md">
@@ -198,12 +198,12 @@ const Index = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  РООР КЦРОС Липецкой области создана для координации деятельности общественных организаций,
-                  развития гражданского общества и укрепления связей между различными секторами региона.
+                  РООР КЦРОС Липецкой области — региональное отраслевое объединение работодателей, координирующее
+                  деятельность руководителей охранных структур региона.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Мы работаем над созданием эффективной системы взаимодействия между государственными органами,
-                  бизнес-сообществом и общественными организациями.
+                  Мы работаем над развитием охранной отрасли, повышением профессионального уровня специалистов
+                  и обеспечением безопасности объектов на территории Липецкой области.
                 </p>
               </CardContent>
             </Card>
@@ -220,19 +220,19 @@ const Index = () => {
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Координация деятельности общественных организаций</span>
+                      <span className="text-muted-foreground">Координация деятельности охранных организаций</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Ведение реестров и баз данных</span>
+                      <span className="text-muted-foreground">Ведение реестров охранных предприятий</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Информационная поддержка участников</span>
+                      <span className="text-muted-foreground">Методическая и правовая поддержка участников</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Организация образовательных мероприятий</span>
+                      <span className="text-muted-foreground">Профессиональная подготовка и аттестация</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -248,20 +248,20 @@ const Index = () => {
                 <CardContent>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
-                      <Icon name="Briefcase" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Поддержка предпринимательства</span>
+                      <Icon name="ShieldCheck" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Физическая охрана объектов</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Shield" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Общественный контроль</span>
+                      <Icon name="Video" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Технические средства безопасности</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="GraduationCap" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Образовательные программы</span>
+                      <span className="text-muted-foreground">Обучение охранников</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Network" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Межрегиональное сотрудничество</span>
+                      <span className="text-muted-foreground">Взаимодействие с органами власти</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -558,7 +558,7 @@ const Index = () => {
             <div>
               <h3 className="font-bold text-lg mb-3">РООР КЦРОС</h3>
               <p className="text-sm text-gray-300">
-                Координационный центр развития общественных связей Липецкой области
+                Координационный центр руководителей охранных структур Липецкой области
               </p>
             </div>
             <div>
