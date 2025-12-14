@@ -24,6 +24,17 @@ const Index = () => {
     { id: 3, title: 'Семинар по новым требованиям к лицензированию', date: '01.12.2024', excerpt: 'Приглашаем руководителей охранных предприятий на семинар по актуальным вопросам лицензирования.' },
   ];
 
+  const documentsData = [
+    { id: 1, title: 'Устав организации', category: 'Учредительные документы', size: '2.5 МБ', date: '15.01.2024', icon: 'FileText' },
+    { id: 2, title: 'Положение о членстве', category: 'Учредительные документы', size: '1.8 МБ', date: '20.02.2024', icon: 'FileText' },
+    { id: 3, title: 'Договор на оказание охранных услуг (образец)', category: 'Договоры и соглашения', size: '850 КБ', date: '10.03.2024', icon: 'FileCheck' },
+    { id: 4, title: 'Соглашение о сотрудничестве', category: 'Договоры и соглашения', size: '1.2 МБ', date: '05.04.2024', icon: 'FileCheck' },
+    { id: 5, title: 'Требования к лицензированию охранной деятельности', category: 'Лицензионные требования', size: '3.1 МБ', date: '12.05.2024', icon: 'Shield' },
+    { id: 6, title: 'Порядок получения лицензии', category: 'Лицензионные требования', size: '2.4 МБ', date: '18.06.2024', icon: 'Shield' },
+    { id: 7, title: 'Регламент проведения общих собраний', category: 'Регламенты и инструкции', size: '1.5 МБ', date: '22.07.2024', icon: 'BookOpen' },
+    { id: 8, title: 'Инструкция по работе с реестром', category: 'Регламенты и инструкции', size: '980 КБ', date: '30.08.2024', icon: 'BookOpen' },
+  ];
+
   const filteredRegistry = registryData.filter(item =>
     item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     item.inn.includes(searchQuery) ||
@@ -74,6 +85,14 @@ const Index = () => {
                 Новости
               </button>
               <button
+                onClick={() => setActiveSection('documents')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'documents' ? 'text-primary' : 'text-white'
+                }`}
+              >
+                Документы
+              </button>
+              <button
                 onClick={() => setActiveSection('contacts')}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
                   activeSection === 'contacts' ? 'text-primary' : 'text-white'
@@ -119,7 +138,7 @@ const Index = () => {
                   <CardDescription>Нормативные акты и регламенты</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="link" className="p-0 h-auto">
+                  <Button variant="link" className="p-0 h-auto" onClick={() => setActiveSection('documents')}>
                     Перейти к документам
                     <Icon name="ArrowRight" size={16} className="ml-2" />
                   </Button>
@@ -447,6 +466,228 @@ const Index = () => {
                 </Card>
               ))}
             </div>
+          </div>
+        )}
+
+        {activeSection === 'documents' && (
+          <div className="space-y-6 animate-fade-in max-w-6xl">
+            <div>
+              <h2 className="text-3xl font-bold text-secondary mb-4">Документы</h2>
+              <div className="h-1 w-20 bg-primary rounded mb-6"></div>
+              <p className="text-muted-foreground mb-8">
+                Нормативные акты, учредительные документы, договоры и регламенты организации
+              </p>
+            </div>
+
+            <Tabs defaultValue="all" className="w-full">
+              <TabsList className="grid w-full grid-cols-5 mb-6">
+                <TabsTrigger value="all">Все документы</TabsTrigger>
+                <TabsTrigger value="founding">Учредительные</TabsTrigger>
+                <TabsTrigger value="contracts">Договоры</TabsTrigger>
+                <TabsTrigger value="license">Лицензирование</TabsTrigger>
+                <TabsTrigger value="regulations">Регламенты</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="all" className="space-y-4">
+                {documentsData.map((doc) => (
+                  <Card key={doc.id} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Icon name={doc.icon as any} size={24} className="text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg mb-1">{doc.title}</h3>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              <Badge variant="outline">{doc.category}</Badge>
+                              <span className="flex items-center gap-1">
+                                <Icon name="Calendar" size={14} />
+                                {doc.date}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Icon name="HardDrive" size={14} />
+                                {doc.size}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="outline" size="sm">
+                            <Icon name="Eye" size={16} className="mr-2" />
+                            Просмотр
+                          </Button>
+                          <Button variant="default" size="sm">
+                            <Icon name="Download" size={16} className="mr-2" />
+                            Скачать
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </TabsContent>
+
+              <TabsContent value="founding" className="space-y-4">
+                {documentsData.filter(doc => doc.category === 'Учредительные документы').map((doc) => (
+                  <Card key={doc.id} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Icon name={doc.icon as any} size={24} className="text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg mb-1">{doc.title}</h3>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              <Badge variant="outline">{doc.category}</Badge>
+                              <span className="flex items-center gap-1">
+                                <Icon name="Calendar" size={14} />
+                                {doc.date}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Icon name="HardDrive" size={14} />
+                                {doc.size}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="outline" size="sm">
+                            <Icon name="Eye" size={16} className="mr-2" />
+                            Просмотр
+                          </Button>
+                          <Button variant="default" size="sm">
+                            <Icon name="Download" size={16} className="mr-2" />
+                            Скачать
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </TabsContent>
+
+              <TabsContent value="contracts" className="space-y-4">
+                {documentsData.filter(doc => doc.category === 'Договоры и соглашения').map((doc) => (
+                  <Card key={doc.id} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Icon name={doc.icon as any} size={24} className="text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg mb-1">{doc.title}</h3>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              <Badge variant="outline">{doc.category}</Badge>
+                              <span className="flex items-center gap-1">
+                                <Icon name="Calendar" size={14} />
+                                {doc.date}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Icon name="HardDrive" size={14} />
+                                {doc.size}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="outline" size="sm">
+                            <Icon name="Eye" size={16} className="mr-2" />
+                            Просмотр
+                          </Button>
+                          <Button variant="default" size="sm">
+                            <Icon name="Download" size={16} className="mr-2" />
+                            Скачать
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </TabsContent>
+
+              <TabsContent value="license" className="space-y-4">
+                {documentsData.filter(doc => doc.category === 'Лицензионные требования').map((doc) => (
+                  <Card key={doc.id} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Icon name={doc.icon as any} size={24} className="text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg mb-1">{doc.title}</h3>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              <Badge variant="outline">{doc.category}</Badge>
+                              <span className="flex items-center gap-1">
+                                <Icon name="Calendar" size={14} />
+                                {doc.date}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Icon name="HardDrive" size={14} />
+                                {doc.size}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="outline" size="sm">
+                            <Icon name="Eye" size={16} className="mr-2" />
+                            Просмотр
+                          </Button>
+                          <Button variant="default" size="sm">
+                            <Icon name="Download" size={16} className="mr-2" />
+                            Скачать
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </TabsContent>
+
+              <TabsContent value="regulations" className="space-y-4">
+                {documentsData.filter(doc => doc.category === 'Регламенты и инструкции').map((doc) => (
+                  <Card key={doc.id} className="hover:shadow-lg transition-shadow">
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <Icon name={doc.icon as any} size={24} className="text-primary" />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="font-semibold text-lg mb-1">{doc.title}</h3>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              <Badge variant="outline">{doc.category}</Badge>
+                              <span className="flex items-center gap-1">
+                                <Icon name="Calendar" size={14} />
+                                {doc.date}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Icon name="HardDrive" size={14} />
+                                {doc.size}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="outline" size="sm">
+                            <Icon name="Eye" size={16} className="mr-2" />
+                            Просмотр
+                          </Button>
+                          <Button variant="default" size="sm">
+                            <Icon name="Download" size={16} className="mr-2" />
+                            Скачать
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </TabsContent>
+            </Tabs>
           </div>
         )}
 
