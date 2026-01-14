@@ -37,7 +37,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <Icon name="Shield" size={32} className="text-primary" />
+              <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="РООР КЦРОС" className="h-12 w-auto" />
               <div>
                 <h1 className="text-xl font-bold">РООР КЦРОС</h1>
                 <p className="text-sm text-gray-300">Координационный центр руководителей охранных структур</p>
