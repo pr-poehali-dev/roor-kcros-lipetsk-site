@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import DocumentsSection from '@/components/DocumentsSection';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -22,17 +23,6 @@ const Index = () => {
     { id: 1, title: 'Заседание координационного совета РООР КЦРОС', date: '10.12.2024', excerpt: 'Состоялось очередное заседание координационного совета по вопросам развития охранной отрасли в регионе.' },
     { id: 2, title: 'Обновление реестра охранных организаций', date: '05.12.2024', excerpt: 'Внесены изменения в реестр охранных предприятий Липецкой области. Обновлено 47 записей.' },
     { id: 3, title: 'Семинар по новым требованиям к лицензированию', date: '01.12.2024', excerpt: 'Приглашаем руководителей охранных предприятий на семинар по актуальным вопросам лицензирования.' },
-  ];
-
-  const documentsData = [
-    { id: 1, title: 'Устав организации', category: 'Учредительные документы', size: '2.5 МБ', date: '15.01.2024', icon: 'FileText' },
-    { id: 2, title: 'Положение о членстве', category: 'Учредительные документы', size: '1.8 МБ', date: '20.02.2024', icon: 'FileText' },
-    { id: 3, title: 'Договор на оказание охранных услуг (образец)', category: 'Договоры и соглашения', size: '850 КБ', date: '10.03.2024', icon: 'FileCheck' },
-    { id: 4, title: 'Соглашение о сотрудничестве', category: 'Договоры и соглашения', size: '1.2 МБ', date: '05.04.2024', icon: 'FileCheck' },
-    { id: 5, title: 'Требования к лицензированию охранной деятельности', category: 'Лицензионные требования', size: '3.1 МБ', date: '12.05.2024', icon: 'Shield' },
-    { id: 6, title: 'Порядок получения лицензии', category: 'Лицензионные требования', size: '2.4 МБ', date: '18.06.2024', icon: 'Shield' },
-    { id: 7, title: 'Регламент проведения общих собраний', category: 'Регламенты и инструкции', size: '1.5 МБ', date: '22.07.2024', icon: 'BookOpen' },
-    { id: 8, title: 'Инструкция по работе с реестром', category: 'Регламенты и инструкции', size: '980 КБ', date: '30.08.2024', icon: 'BookOpen' },
   ];
 
   const filteredRegistry = registryData.filter(item =>
@@ -469,7 +459,9 @@ const Index = () => {
           </div>
         )}
 
-        {activeSection === 'documents' && (
+        {activeSection === 'documents' && <DocumentsSection />}
+
+        {false && (
           <div className="space-y-6 animate-fade-in max-w-6xl">
             <div>
               <h2 className="text-3xl font-bold text-secondary mb-4">Документы</h2>
