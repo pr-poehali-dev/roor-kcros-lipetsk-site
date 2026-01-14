@@ -20,9 +20,22 @@ const Index = () => {
   ];
 
   const newsData = [
-    { id: 1, title: 'Заседание координационного совета РООР КЦРОС', date: '10.12.2024', excerpt: 'Состоялось очередное заседание координационного совета по вопросам развития охранной отрасли в регионе.' },
-    { id: 2, title: 'Обновление реестра охранных организаций', date: '05.12.2024', excerpt: 'Внесены изменения в реестр охранных предприятий Липецкой области. Обновлено 47 записей.' },
-    { id: 3, title: 'Семинар по новым требованиям к лицензированию', date: '01.12.2024', excerpt: 'Приглашаем руководителей охранных предприятий на семинар по актуальным вопросам лицензирования.' },
+    { 
+      id: 1, 
+      title: 'Мы рады сообщить о запуске сайта!', 
+      date: '23.12.2024', 
+      image: 'https://cdn.poehali.dev/files/new-site.jpg',
+      excerpt: 'Уважаемые посетители! Рады сообщить Вам об открытии нашего сайта!',
+      fullText: `Уважаемые посетители! Рады сообщить Вам об открытии нашего сайта!
+
+Мы постарались сделать наш новый сайт максимально удобным и информативным, чтобы вы могли быстро найти всю интересующую вас информацию в полном объеме, а его оформление приятно порадовало вас в процессе работы с ним.
+
+Мы еще над ним трудимся: добавляем новые рубрики, статьи, делаем его более информативным. Мобильная версия сайта адаптирована под любое разрешение экрана и открывается на любых гаджетах.
+
+Сейчас наш сайт еще очень молод, поэтому просим отнестись с пониманием к возможным техническим проблемам и недоработкам. Мы постоянно работаем над его улучшением. Будем рады любым Вашим пожеланиям и идеям по улучшению портала, которые Вы можете направлять на почту: roorktsros@yandex.ru
+
+Надеемся, что наш сайт оставит у Вас приятные впечатления и принесёт пользу в получении необходимой информации о нас и наших возможностях!`
+    },
   ];
 
   const filteredRegistry = registryData.filter(item =>
@@ -175,9 +188,18 @@ const Index = () => {
 
             <section>
               <h3 className="text-2xl font-bold text-secondary mb-4">Последние новости</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {newsData.slice(0, 2).map((news) => (
-                  <Card key={news.id} className="hover:shadow-lg transition-shadow">
+              <div className="grid gap-6">
+                {newsData.slice(0, 1).map((news) => (
+                  <Card key={news.id} className="hover:shadow-lg transition-shadow overflow-hidden cursor-pointer" onClick={() => setActiveSection('news')}>
+                    {news.image && (
+                      <div className="w-full h-48 overflow-hidden bg-gray-100">
+                        <img 
+                          src={news.image} 
+                          alt={news.title}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    )}
                     <CardHeader>
                       <div className="flex items-center justify-between mb-2">
                         <Badge variant="secondary">{news.date}</Badge>
@@ -185,7 +207,11 @@ const Index = () => {
                       <CardTitle className="text-lg">{news.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">{news.excerpt}</p>
+                      <p className="text-muted-foreground line-clamp-3">{news.excerpt}</p>
+                      <Button variant="link" className="p-0 h-auto mt-2">
+                        Читать далее
+                        <Icon name="ArrowRight" size={16} className="ml-2" />
+                      </Button>
                     </CardContent>
                   </Card>
                 ))}
@@ -441,7 +467,16 @@ const Index = () => {
 
             <div className="space-y-6">
               {newsData.map((news) => (
-                <Card key={news.id} className="hover:shadow-lg transition-shadow">
+                <Card key={news.id} className="hover:shadow-lg transition-shadow overflow-hidden">
+                  {news.image && (
+                    <div className="w-full h-64 overflow-hidden bg-gray-100">
+                      <img 
+                        src={news.image} 
+                        alt={news.title}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  )}
                   <CardHeader>
                     <div className="flex items-center gap-4 mb-2">
                       <Badge variant="secondary" className="text-xs">
@@ -449,14 +484,14 @@ const Index = () => {
                         {news.date}
                       </Badge>
                     </div>
-                    <CardTitle className="text-xl">{news.title}</CardTitle>
+                    <CardTitle className="text-2xl">{news.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <p className="text-muted-foreground leading-relaxed">{news.excerpt}</p>
-                    <Button variant="link" className="p-0 h-auto">
-                      Читать полностью
-                      <Icon name="ArrowRight" size={16} className="ml-2" />
-                    </Button>
+                    {news.fullText && (
+                      <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                        {news.fullText}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               ))}
