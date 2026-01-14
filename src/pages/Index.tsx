@@ -24,7 +24,7 @@ const Index = () => {
       id: 1, 
       title: 'Мы рады сообщить о запуске сайта!', 
       date: '23.12.2024', 
-      image: 'https://cdn.poehali.dev/files/new-site.jpg',
+      image: 'https://cdn.poehali.dev/files/57b6ff2a94ac9.png',
       excerpt: 'Уважаемые посетители! Рады сообщить Вам об открытии нашего сайта!',
       fullText: `Уважаемые посетители! Рады сообщить Вам об открытии нашего сайта!
 
