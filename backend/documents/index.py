@@ -4,6 +4,7 @@ import base64
 import uuid
 from datetime import datetime
 import boto3
+import psycopg2
 
 def handler(event: dict, context) -> dict:
     '''API для управления документами организации - загрузка, получение списка, скачивание PDF файлов'''
@@ -27,6 +28,9 @@ def handler(event: dict, context) -> dict:
         aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
         aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
     )
+    
+    conn = psycopg2.connect(os.environ['DATABASE_URL'])
+    schema = os.environ['MAIN_DB_SCHEMA']
     
     if method == 'POST':
         try:
@@ -56,11 +60,22 @@ def handler(event: dict, context) -> dict:
             
             cdn_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{file_key}"
             
+            size_str = f"{len(file_content) / 1024:.1f} КБ" if len(file_content) < 1024 * 1024 else f"{len(file_content) / (1024 * 1024):.1f} МБ"
+            
+            cursor = conn.cursor()
+            cursor.execute(
+                f"INSERT INTO {schema}.documents (id, title, category, file_key, size) VALUES (%s, %s, %s, %s, %s)",
+                (file_id, title, category, file_key, size_str)
+            )
+            conn.commit()
+            cursor.close()
+            conn.close()
+            
             document = {
                 'id': file_id,
                 'title': title,
                 'category': category,
-                'size': f"{len(file_content) / 1024:.1f} КБ" if len(file_content) < 1024 * 1024 else f"{len(file_content) / (1024 * 1024):.1f} МБ",
+                'size': size_str,
                 'date': datetime.now().strftime('%d.%m.%Y'),
                 'url': cdn_url,
                 'icon': get_icon_for_category(category)
@@ -82,20 +97,28 @@ def handler(event: dict, context) -> dict:
     
     if method == 'GET':
         try:
-            response = s3.list_objects_v2(Bucket='files', Prefix='documents/')
-            documents = []
+            cursor = conn.cursor()
+            cursor.execute(
+                f"SELECT id, title, category, file_key, size, created_at FROM {schema}.documents ORDER BY created_at DESC"
+            )
+            rows = cursor.fetchall()
+            cursor.close()
+            conn.close()
             
-            for obj in response.get('Contents', []):
-                if obj['Key'].endswith('.pdf'):
-                    file_id = obj['Key'].split('/')[-1].replace('.pdf', '')
-                    cdn_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{obj['Key']}"
-                    
-                    documents.append({
-                        'id': file_id,
-                        'url': cdn_url,
-                        'size': f"{obj['Size'] / 1024:.1f} КБ" if obj['Size'] < 1024 * 1024 else f"{obj['Size'] / (1024 * 1024):.1f} МБ",
-                        'date': obj['LastModified'].strftime('%d.%m.%Y')
-                    })
+            documents = []
+            for row in rows:
+                file_id, title, category, file_key, size, created_at = row
+                cdn_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{file_key}"
+                
+                documents.append({
+                    'id': file_id,
+                    'title': title,
+                    'category': category,
+                    'url': cdn_url,
+                    'size': size,
+                    'date': created_at.strftime('%d.%m.%Y'),
+                    'icon': get_icon_for_category(category)
+                })
             
             return {
                 'statusCode': 200,
@@ -124,7 +147,24 @@ def handler(event: dict, context) -> dict:
                     'isBase64Encoded': False
                 }
             
-            s3.delete_object(Bucket='files', Key=f'documents/{file_id}.pdf')
+            cursor = conn.cursor()
+            cursor.execute(
+                f"SELECT file_key FROM {schema}.documents WHERE id = %s",
+                (file_id,)
+            )
+            result = cursor.fetchone()
+            
+            if result:
+                file_key = result[0]
+                s3.delete_object(Bucket='files', Key=file_key)
+                cursor.execute(
+                    f"DELETE FROM {schema}.documents WHERE id = %s",
+                    (file_id,)
+                )
+                conn.commit()
+            
+            cursor.close()
+            conn.close()
             
             return {
                 'statusCode': 200,
