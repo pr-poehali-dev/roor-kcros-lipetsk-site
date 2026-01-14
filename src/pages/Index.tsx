@@ -100,13 +100,18 @@ const Index = () => {
           <div className="space-y-8 animate-fade-in">
             <section className="bg-gradient-to-br from-primary/10 to-accent/5 rounded-lg p-8 md:p-12">
               <div className="max-w-3xl">
-                <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-                  Региональное отраслевое объединение работодателей
-                </h2>
-                <p className="text-lg text-muted-foreground mb-6">
+                <div className="flex items-start gap-4 mb-6">
+                  <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="РООР КЦРОС" className="h-20 w-auto" />
+                  <div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-2">
+                      Региональное отраслевое объединение работодателей
+                    </h2>
+                  </div>
+                </div>
+                <p className="text-lg text-muted-foreground mb-6 ml-24">
                   Координационный центр руководителей охранных структур Липецкой области
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 ml-24">
                   <Button onClick={() => setActiveSection('registry')} size="lg" className="shadow-md">
                     <Icon name="Database" size={20} className="mr-2" />
                     Реестры организаций
@@ -121,8 +126,8 @@ const Index = () => {
             <section className="grid md:grid-cols-3 gap-6">
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                    <Icon name="FileText" size={24} className="text-primary" />
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
+                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Документы" className="h-full w-auto" />
                   </div>
                   <CardTitle>Документы</CardTitle>
                   <CardDescription>Нормативные акты и регламенты</CardDescription>
@@ -137,8 +142,8 @@ const Index = () => {
 
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                    <Icon name="Database" size={24} className="text-primary" />
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
+                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Реестры" className="h-full w-auto" />
                   </div>
                   <CardTitle>Реестры</CardTitle>
                   <CardDescription>База данных организаций региона</CardDescription>
@@ -153,8 +158,8 @@ const Index = () => {
 
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                    <Icon name="Newspaper" size={24} className="text-primary" />
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
+                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Новости" className="h-full w-auto" />
                   </div>
                   <CardTitle>Новости</CardTitle>
                   <CardDescription>События и объявления</CardDescription>
