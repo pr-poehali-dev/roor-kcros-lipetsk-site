@@ -1,0 +1,32 @@
+{
+  "tests": [
+    {
+      "name": "Успешная отправка сообщения",
+      "method": "POST",
+      "body": {
+        "name": "Иван Тестов",
+        "email": "test@example.com",
+        "phone": "+7-999-123-45-67",
+        "message": "Тестовое сообщение для проверки работы формы"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Отправка без обязательного поля",
+      "method": "POST",
+      "body": {
+        "name": "Иван",
+        "phone": "+7-999-123-45-67"
+      },
+      "expectedStatus": 400,
+      "expectedBody": {
+        "error": "string"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

@@ -11,6 +11,9 @@ import RegistrySection from '@/components/RegistrySection';
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [formMessage, setFormMessage] = useState('');
 
   const registryData = [
     { id: 1, name: 'ЧОП "Барс-Липецк"', inn: '4825012345', status: 'Активно', category: 'Частная охрана', date: '15.01.2024' },
@@ -707,23 +710,105 @@ const Index = () => {
                 <CardDescription>Заполните форму, и мы свяжемся с вами в ближайшее время</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="p-6 bg-muted/50 rounded-lg border-2 border-dashed border-border text-center">
-                  <Icon name="Mail" size={48} className="mx-auto mb-4 text-primary" />
-                  <p className="text-lg font-medium mb-2">Свяжитесь с нами напрямую</p>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Для отправки сообщения воспользуйтесь нашей электронной почтой
-                  </p>
-                  <a
-                    href="mailto:roorktsros@yandex.ru"
-                    className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                <form className="space-y-4" onSubmit={async (e) => {
+                  e.preventDefault();
+                  setFormStatus('sending');
+                  setFormMessage('');
+                  
+                  try {
+                    const response = await fetch('https://functions.poehali.dev/a8dc45f6-598b-4a9b-bca5-49fb39f742c8', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (response.ok) {
+                      setFormStatus('success');
+                      setFormMessage('Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.');
+                      setFormData({ name: '', email: '', phone: '', message: '' });
+                    } else {
+                      setFormStatus('error');
+                      setFormMessage(result.error || 'Ошибка отправки сообщения');
+                    }
+                  } catch (error) {
+                    setFormStatus('error');
+                    setFormMessage('Ошибка соединения. Попробуйте позже.');
+                  }
+                }}>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Ваше имя *</label>
+                      <Input 
+                        required
+                        placeholder="Иванов Иван Иванович"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Email *</label>
+                      <Input 
+                        required
+                        type="email"
+                        placeholder="example@mail.ru"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Телефон</label>
+                    <Input 
+                      type="tel"
+                      placeholder="+7 (___) ___-__-__"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Сообщение *</label>
+                    <textarea
+                      required
+                      className="w-full min-h-[120px] px-3 py-2 border border-input rounded-md bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                      placeholder="Ваше сообщение..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    />
+                  </div>
+                  
+                  {formMessage && (
+                    <div className={`p-4 rounded-md ${formStatus === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                      <p className="text-sm">{formMessage}</p>
+                    </div>
+                  )}
+                  
+                  <Button 
+                    type="submit" 
+                    className="w-full md:w-auto"
+                    disabled={formStatus === 'sending'}
                   >
-                    <Icon name="Mail" size={18} />
-                    roorktsros@yandex.ru
-                  </a>
-                  <p className="text-sm text-muted-foreground mt-4">
-                    или позвоните по телефону: +7-919-161-00-30
+                    {formStatus === 'sending' ? (
+                      <>
+                        <Icon name="Loader2" size={18} className="mr-2 animate-spin" />
+                        Отправка...
+                      </>
+                    ) : (
+                      <>
+                        <Icon name="Send" size={18} className="mr-2" />
+                        Отправить сообщение
+                      </>
+                    )}
+                  </Button>
+                  
+                  <p className="text-sm text-muted-foreground">
+                    Или напишите напрямую на{' '}
+                    <a href="mailto:roorktsros@yandex.ru" className="text-primary hover:underline">
+                      roorktsros@yandex.ru
+                    </a>
                   </p>
-                </div>
+                </form>
               </CardContent>
             </Card>
           </div>
