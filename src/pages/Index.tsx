@@ -640,7 +640,7 @@ const Index = () => {
                     </div>
                     <div className="flex items-center gap-2">
                       <Icon name="Mail" size={18} className="text-primary" />
-                      <span className="text-muted-foreground">info@roor-lipetsk.ru</span>
+                      <span className="text-muted-foreground">roorktsros@yandex.ru</span>
                     </div>
                   </div>
                 </CardContent>
@@ -707,33 +707,23 @@ const Index = () => {
                 <CardDescription>Заполните форму, и мы свяжемся с вами в ближайшее время</CardDescription>
               </CardHeader>
               <CardContent>
-                <form className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Ваше имя</label>
-                      <Input placeholder="Иванов Иван Иванович" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium">Email</label>
-                      <Input type="email" placeholder="example@mail.ru" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Телефон</label>
-                    <Input type="tel" placeholder="+7 (___) ___-__-__" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium">Сообщение</label>
-                    <textarea
-                      className="w-full min-h-[120px] px-3 py-2 border border-input rounded-md bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="Ваше сообщение..."
-                    />
-                  </div>
-                  <Button type="submit" className="w-full md:w-auto">
-                    <Icon name="Send" size={18} className="mr-2" />
-                    Отправить сообщение
-                  </Button>
-                </form>
+                <div className="p-6 bg-muted/50 rounded-lg border-2 border-dashed border-border text-center">
+                  <Icon name="Mail" size={48} className="mx-auto mb-4 text-primary" />
+                  <p className="text-lg font-medium mb-2">Свяжитесь с нами напрямую</p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Для отправки сообщения воспользуйтесь нашей электронной почтой
+                  </p>
+                  <a
+                    href="mailto:roorktsros@yandex.ru"
+                    className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+                  >
+                    <Icon name="Mail" size={18} />
+                    roorktsros@yandex.ru
+                  </a>
+                  <p className="text-sm text-muted-foreground mt-4">
+                    или позвоните по телефону: +7-919-161-00-30
+                  </p>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -796,7 +786,7 @@ const Index = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Icon name="Mail" size={16} />
-                  info@roor-lipetsk.ru
+                  roorktsros@yandex.ru
                 </li>
               </ul>
             </div>
