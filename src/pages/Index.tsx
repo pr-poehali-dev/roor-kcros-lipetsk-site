@@ -168,55 +168,7 @@ const Index = () => {
             </section>
 
             <section className="grid md:grid-cols-3 gap-6">
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveSection('about')}>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Об организации" className="h-full w-auto" />
-                  </div>
-                  <CardTitle>Об организации</CardTitle>
-                  <CardDescription>Информация о РООР КЦРОС</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="link" className="p-0 h-auto">
-                    Узнать больше
-                    <Icon name="ArrowRight" size={16} className="ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveSection('registry')}>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Реестры" className="h-full w-auto" />
-                  </div>
-                  <CardTitle>Реестры</CardTitle>
-                  <CardDescription>База данных организаций региона</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="link" className="p-0 h-auto">
-                    Открыть реестры
-                    <Icon name="ArrowRight" size={16} className="ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveSection('news')}>
-                <CardHeader>
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Новости" className="h-full w-auto" />
-                  </div>
-                  <CardTitle>Новости</CardTitle>
-                  <CardDescription>События и объявления</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="link" className="p-0 h-auto">
-                    Читать новости
-                    <Icon name="ArrowRight" size={16} className="ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveSection('documents')}>
+              <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
                     <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Документы" className="h-full w-auto" />
@@ -225,24 +177,40 @@ const Index = () => {
                   <CardDescription>Нормативные акты и регламенты</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="link" className="p-0 h-auto">
+                  <Button variant="link" className="p-0 h-auto" onClick={() => setActiveSection('documents')}>
                     Перейти к документам
                     <Icon name="ArrowRight" size={16} className="ml-2" />
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => setActiveSection('contacts')}>
+              <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Контакты" className="h-full w-auto" />
+                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Реестры" className="h-full w-auto" />
                   </div>
-                  <CardTitle>Контакты</CardTitle>
-                  <CardDescription>Наши контакты и обратная связь</CardDescription>
+                  <CardTitle>Реестры</CardTitle>
+                  <CardDescription>База данных организаций региона</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Button variant="link" className="p-0 h-auto">
-                    Связаться с нами
+                  <Button variant="link" className="p-0 h-auto" onClick={() => setActiveSection('registry')}>
+                    Открыть реестры
+                    <Icon name="ArrowRight" size={16} className="ml-2" />
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
+                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Новости" className="h-full w-auto" />
+                  </div>
+                  <CardTitle>Новости</CardTitle>
+                  <CardDescription>События и объявления</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button variant="link" className="p-0 h-auto" onClick={() => setActiveSection('news')}>
+                    Читать новости
                     <Icon name="ArrowRight" size={16} className="ml-2" />
                   </Button>
                 </CardContent>
