@@ -837,9 +837,7 @@ const Index = () => {
               <h4 className="font-semibold mb-4">Быстрые ссылки</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <button onClick={() => setActiveSection('about')} className="text-gray-300 hover:text-primary transition-colors">
-                    О организации
-                  </button>
+                  <button onClick={() => setActiveSection('about')} className="text-gray-300 hover:text-primary transition-colors">Об организации</button>
                 </li>
                 <li>
                   <button onClick={() => setActiveSection('registry')} className="text-gray-300 hover:text-primary transition-colors">
