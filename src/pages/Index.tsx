@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import DocumentsSection from '@/components/DocumentsSection';
+import NewsSection from '@/components/NewsSection';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -459,43 +460,8 @@ const Index = () => {
         )}
 
         {activeSection === 'news' && (
-          <div className="space-y-6 animate-fade-in max-w-4xl">
-            <div>
-              <h2 className="text-3xl font-bold text-secondary mb-4">Новости</h2>
-              <div className="h-1 w-20 bg-primary rounded mb-6"></div>
-            </div>
-
-            <div className="space-y-6">
-              {newsData.map((news) => (
-                <Card key={news.id} className="hover:shadow-lg transition-shadow overflow-hidden">
-                  {news.image && (
-                    <div className="w-full h-64 overflow-hidden bg-gray-100">
-                      <img 
-                        src={news.image} 
-                        alt={news.title}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  )}
-                  <CardHeader>
-                    <div className="flex items-center gap-4 mb-2">
-                      <Badge variant="secondary" className="text-xs">
-                        <Icon name="Calendar" size={14} className="mr-1" />
-                        {news.date}
-                      </Badge>
-                    </div>
-                    <CardTitle className="text-2xl">{news.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {news.fullText && (
-                      <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
-                        {news.fullText}
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+          <div className="animate-fade-in max-w-6xl">
+            <NewsSection />
           </div>
         )}
 
