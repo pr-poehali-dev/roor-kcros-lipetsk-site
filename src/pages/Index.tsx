@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import DocumentsSection from '@/components/DocumentsSection';
-import NewsSection from '@/components/NewsSection';
+import AdminPanel from '@/components/AdminPanel';
+import RegistrySection from '@/components/RegistrySection';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -122,6 +120,14 @@ const Index = () => {
                 }`}
               >
                 Контакты
+              </button>
+              <button
+                onClick={() => setActiveSection('admin')}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  activeSection === 'admin' ? 'text-primary' : 'text-white'
+                }`}
+              >
+                <Icon name="Settings" size={16} />
               </button>
             </nav>
           </div>
@@ -329,152 +335,8 @@ const Index = () => {
         )}
 
         {activeSection === 'registry' && (
-          <div className="space-y-6 animate-fade-in">
-            <div>
-              <h2 className="text-3xl font-bold text-secondary mb-4">Реестр организаций</h2>
-              <div className="h-1 w-20 bg-primary rounded mb-6"></div>
-            </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Поиск в реестре</CardTitle>
-                <CardDescription>
-                  Введите название организации, ИНН или категорию для поиска
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="flex gap-2">
-                  <div className="relative flex-1">
-                    <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                    <Input
-                      placeholder="Поиск по названию, ИНН, категории..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10"
-                    />
-                  </div>
-                  <Button variant="outline">
-                    <Icon name="SlidersHorizontal" size={20} />
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Tabs defaultValue="all" className="w-full">
-              <TabsList className="grid w-full max-w-md grid-cols-3">
-                <TabsTrigger value="all">Все</TabsTrigger>
-                <TabsTrigger value="active">Активные</TabsTrigger>
-                <TabsTrigger value="suspended">Приостановлено</TabsTrigger>
-              </TabsList>
-              <TabsContent value="all" className="space-y-4 mt-6">
-                <div className="text-sm text-muted-foreground mb-4">
-                  Найдено записей: <span className="font-semibold text-foreground">{filteredRegistry.length}</span>
-                </div>
-                {filteredRegistry.map((item) => (
-                  <Card key={item.id} className="hover:shadow-md transition-shadow">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div className="space-y-1">
-                          <CardTitle className="text-lg">{item.name}</CardTitle>
-                          <CardDescription>ИНН: {item.inn}</CardDescription>
-                        </div>
-                        <Badge variant={item.status === 'Активно' ? 'default' : 'secondary'}>
-                          {item.status}
-                        </Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center gap-2">
-                          <Icon name="Tag" size={16} className="text-muted-foreground" />
-                          <span className="text-muted-foreground">{item.category}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Icon name="Calendar" size={16} className="text-muted-foreground" />
-                          <span className="text-muted-foreground">{item.date}</span>
-                        </div>
-                        <Button variant="link" className="p-0 h-auto ml-auto">
-                          Подробнее
-                          <Icon name="ExternalLink" size={16} className="ml-1" />
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </TabsContent>
-              <TabsContent value="active" className="space-y-4 mt-6">
-                <div className="text-sm text-muted-foreground mb-4">
-                  Найдено записей: <span className="font-semibold text-foreground">
-                    {filteredRegistry.filter(item => item.status === 'Активно').length}
-                  </span>
-                </div>
-                {filteredRegistry.filter(item => item.status === 'Активно').map((item) => (
-                  <Card key={item.id} className="hover:shadow-md transition-shadow">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div className="space-y-1">
-                          <CardTitle className="text-lg">{item.name}</CardTitle>
-                          <CardDescription>ИНН: {item.inn}</CardDescription>
-                        </div>
-                        <Badge variant="default">{item.status}</Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center gap-2">
-                          <Icon name="Tag" size={16} className="text-muted-foreground" />
-                          <span className="text-muted-foreground">{item.category}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Icon name="Calendar" size={16} className="text-muted-foreground" />
-                          <span className="text-muted-foreground">{item.date}</span>
-                        </div>
-                        <Button variant="link" className="p-0 h-auto ml-auto">
-                          Подробнее
-                          <Icon name="ExternalLink" size={16} className="ml-1" />
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </TabsContent>
-              <TabsContent value="suspended" className="space-y-4 mt-6">
-                <div className="text-sm text-muted-foreground mb-4">
-                  Найдено записей: <span className="font-semibold text-foreground">
-                    {filteredRegistry.filter(item => item.status === 'Приостановлено').length}
-                  </span>
-                </div>
-                {filteredRegistry.filter(item => item.status === 'Приостановлено').map((item) => (
-                  <Card key={item.id} className="hover:shadow-md transition-shadow">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <div className="space-y-1">
-                          <CardTitle className="text-lg">{item.name}</CardTitle>
-                          <CardDescription>ИНН: {item.inn}</CardDescription>
-                        </div>
-                        <Badge variant="secondary">{item.status}</Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-4 text-sm">
-                        <div className="flex items-center gap-2">
-                          <Icon name="Tag" size={16} className="text-muted-foreground" />
-                          <span className="text-muted-foreground">{item.category}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Icon name="Calendar" size={16} className="text-muted-foreground" />
-                          <span className="text-muted-foreground">{item.date}</span>
-                        </div>
-                        <Button variant="link" className="p-0 h-auto ml-auto">
-                          Подробнее
-                          <Icon name="ExternalLink" size={16} className="ml-1" />
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </TabsContent>
-            </Tabs>
+          <div className="animate-fade-in max-w-6xl">
+            <RegistrySection />
           </div>
         )}
 
@@ -740,6 +602,12 @@ const Index = () => {
                 ))}
               </TabsContent>
             </Tabs>
+          </div>
+        )}
+
+        {activeSection === 'admin' && (
+          <div className="animate-fade-in max-w-6xl">
+            <AdminPanel />
           </div>
         )}
 

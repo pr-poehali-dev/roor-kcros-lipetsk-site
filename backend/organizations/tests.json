@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Получение списка организаций",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "organizations": []
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
