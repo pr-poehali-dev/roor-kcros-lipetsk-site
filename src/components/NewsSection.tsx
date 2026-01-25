@@ -9,6 +9,7 @@ interface News {
   content: string;
   category: string;
   image_url?: string;
+  video_url?: string;
   published_at: string;
   is_holiday: boolean;
 }
@@ -78,6 +79,21 @@ const NewsSection = () => {
                 alt={selectedNews.title}
                 className="w-full h-auto rounded-lg"
               />
+            )}
+            {selectedNews.video_url && (
+              <div className="w-full aspect-video rounded-lg overflow-hidden">
+                <iframe
+                  src={selectedNews.video_url.replace('vkvideo.ru/video', 'vk.com/video_ext.php?oid=')
+                    .replace('_', '&id=')
+                    .replace(/&hash=.*/, '')}
+                  width="100%"
+                  height="100%"
+                  allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
             )}
             <div className="prose max-w-none">
               <p className="whitespace-pre-wrap text-foreground">{selectedNews.content}</p>

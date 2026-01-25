@@ -29,6 +29,7 @@ const Index = () => {
       title: 'ООО ЧОП «Карат 48» исполнило желания детей в рамках «Елки желаний»', 
       date: '16.01.2026', 
       image: 'https://cdn.poehali.dev/projects/10e7fd4c-5234-4d78-be4b-8a34049f73f2/bucket/dcb39335-ca11-4fce-abc5-d9e3b3e400fa.jpeg',
+      video: 'https://vkvideo.ru/video-102232200_456239017',
       excerpt: 'Частное охранное предприятие ООО ЧОП «Карат 48» приняло участие в благотворительной новогодней акции «Елка желаний» в городе Первомайске (ЛНР).',
       fullText: `Частное охранное предприятие ООО ЧОП «Карат 48» приняло участие в благотворительной новогодней акции «Елка желаний» в городе Первомайске (ЛНР). Мероприятие было организовано для исполнения детских желаний.
 
@@ -388,6 +389,19 @@ const Index = () => {
                     <CardTitle className="text-2xl">{news.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
+                    {news.video && (
+                      <div className="w-full aspect-video rounded-lg overflow-hidden mb-4">
+                        <iframe
+                          src={`https://vk.com/video_ext.php?oid=${news.video.split('video')[1].split('_')[0]}&id=${news.video.split('_')[1]}`}
+                          width="100%"
+                          height="100%"
+                          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                          frameBorder="0"
+                          allowFullScreen
+                          className="w-full h-full"
+                        />
+                      </div>
+                    )}
                     {news.fullText && (
                       <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
                         {news.fullText}
