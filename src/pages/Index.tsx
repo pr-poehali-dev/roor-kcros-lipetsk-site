@@ -392,7 +392,7 @@ const Index = () => {
                     {news.video && (
                       <div className="w-full aspect-video rounded-lg overflow-hidden mb-4">
                         <iframe
-                          src={`https://vk.com/video_ext.php?oid=${news.video.split('video')[1].split('_')[0]}&id=${news.video.split('_')[1]}`}
+                          src={news.video.replace('vkvideo.ru/video', 'vk.com/video_ext.php?oid=').replace('_', '&id=').replace(/&hash=.*$/, '')}
                           width="100%"
                           height="100%"
                           allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
