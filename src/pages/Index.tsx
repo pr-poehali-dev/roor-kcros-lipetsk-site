@@ -390,16 +390,17 @@ const Index = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {news.video && (
-                      <div className="w-full aspect-video rounded-lg overflow-hidden mb-4">
-                        <iframe
-                          src={news.video.replace('vkvideo.ru/video', 'vk.com/video_ext.php?oid=').replace('_', '&id=').replace(/&hash=.*$/, '')}
-                          width="100%"
-                          height="100%"
-                          allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
-                          frameBorder="0"
-                          allowFullScreen
-                          className="w-full h-full"
-                        />
+                      <div className="w-full rounded-lg overflow-hidden mb-4 bg-gray-100 flex items-center justify-center p-4">
+                        <a 
+                          href={news.video}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-3 bg-primary text-white px-6 py-4 rounded-lg hover:bg-primary/90 transition-colors"
+                        >
+                          <Icon name="Video" size={24} />
+                          <span className="font-medium">Смотреть видео на VK</span>
+                          <Icon name="ExternalLink" size={18} />
+                        </a>
                       </div>
                     )}
                     {news.fullText && (
