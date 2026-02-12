@@ -44,7 +44,12 @@ const Index = () => {
       id: 6, 
       title: 'РООР «КЦРОС Липецкой области» выступило спонсором Первенства ЦФО по универсальному бою', 
       date: '06.02.2026', 
-      images: ['https://cdn.poehali.dev/projects/10e7fd4c-5234-4d78-be4b-8a34049f73f2/bucket/58a933ad-a0be-4bcd-9019-43f819418a57.jpeg'],
+      images: [
+        'https://cdn.poehali.dev/projects/10e7fd4c-5234-4d78-be4b-8a34049f73f2/bucket/58a933ad-a0be-4bcd-9019-43f819418a57.jpeg',
+        'https://cdn.poehali.dev/projects/10e7fd4c-5234-4d78-be4b-8a34049f73f2/bucket/a51f1982-21aa-420a-bb33-531fc830f74b.jpeg',
+        'https://cdn.poehali.dev/projects/10e7fd4c-5234-4d78-be4b-8a34049f73f2/bucket/4f7cb6ac-d32c-40f7-8336-ae545b0a4a2d.jpeg',
+        'https://cdn.poehali.dev/projects/10e7fd4c-5234-4d78-be4b-8a34049f73f2/bucket/3707ee80-1674-4127-8365-d568245147b8.jpeg'
+      ],
       excerpt: '06 февраля 2026 года в Липецкой области прошло «Первенство центрального федерального округа по универсальному бою».',
       fullText: `06 февраля 2026 года в Липецкой области прошло «Первенство центрального федерального округа по универсальному бою».
 
