@@ -44,7 +44,7 @@ const Index = () => {
       id: 6, 
       title: 'РООР «КЦРОС Липецкой области» выступило спонсором Первенства ЦФО по универсальному бою', 
       date: '06.02.2026', 
-      image: 'https://cdn.poehali.dev/projects/10e7fd4c-5234-4d78-be4b-8a34049f73f2/bucket/58a933ad-a0be-4bcd-9019-43f819418a57.jpeg',
+      images: ['https://cdn.poehali.dev/projects/10e7fd4c-5234-4d78-be4b-8a34049f73f2/bucket/58a933ad-a0be-4bcd-9019-43f819418a57.jpeg'],
       excerpt: '06 февраля 2026 года в Липецкой области прошло «Первенство центрального федерального округа по универсальному бою».',
       fullText: `06 февраля 2026 года в Липецкой области прошло «Первенство центрального федерального округа по универсальному бою».
 
@@ -417,6 +417,19 @@ const Index = () => {
                         alt={news.title}
                         className="w-full h-full object-contain"
                       />
+                    </div>
+                  )}
+                  {news.images && news.images.length > 0 && (
+                    <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-2 p-4 bg-gray-50">
+                      {news.images.map((img, idx) => (
+                        <div key={idx} className="aspect-square overflow-hidden rounded-lg bg-gray-100">
+                          <img 
+                            src={img} 
+                            alt={`${news.title} - фото ${idx + 1}`}
+                            className="w-full h-full object-cover hover:scale-105 transition-transform cursor-pointer"
+                          />
+                        </div>
+                      ))}
                     </div>
                   )}
                   <CardHeader>
