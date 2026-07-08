@@ -49,13 +49,15 @@ def handler(event: dict, context) -> dict:
             
             file_content = base64.b64decode(file_data)
             file_id = str(uuid.uuid4())
-            file_key = f'documents/{file_id}.pdf'
+            file_ext = body.get('extension', 'pdf').lstrip('.')
+            file_key = f'documents/{file_id}.{file_ext}'
+            content_type = get_content_type(file_ext)
             
             s3.put_object(
                 Bucket='files',
                 Key=file_key,
                 Body=file_content,
-                ContentType='application/pdf'
+                ContentType=content_type
             )
             
             cdn_url = f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{file_key}"
@@ -186,6 +188,15 @@ def handler(event: dict, context) -> dict:
         'body': json.dumps({'error': 'Method not allowed'}),
         'isBase64Encoded': False
     }
+
+def get_content_type(extension: str) -> str:
+    types = {
+        'pdf': 'application/pdf',
+        'doc': 'application/msword',
+        'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        'rtf': 'application/rtf',
+    }
+    return types.get(extension.lower(), 'application/octet-stream')
 
 def get_icon_for_category(category: str) -> str:
     if 'Учредительные' in category:

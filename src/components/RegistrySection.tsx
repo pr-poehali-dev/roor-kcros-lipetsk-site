@@ -20,7 +20,7 @@ const RegistrySection = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const API_URL = 'https://functions.poehali.dev/7a1fa008-8875-4dbd-92b9-c15e540bea4d';
+  const API_URL = 'https://functions.poehali.dev/ec36e20b-1fb4-4b98-a732-dcaef3168230';
 
   useEffect(() => {
     const loadOrganizations = async () => {

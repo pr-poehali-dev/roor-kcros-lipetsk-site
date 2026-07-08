@@ -654,7 +654,7 @@ const MainContent = ({
                   setFormMessage('');
                   
                   try {
-                    const response = await fetch('https://functions.poehali.dev/a8dc45f6-598b-4a9b-bca5-49fb39f742c8', {
+                    const response = await fetch('https://functions.poehali.dev/b1b9bfcc-d198-490f-a800-1d221a817352', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify(formData)

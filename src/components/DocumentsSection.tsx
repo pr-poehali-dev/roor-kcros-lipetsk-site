@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 
-const DOCUMENTS_API = 'https://functions.poehali.dev/2584dee7-4428-4108-9457-5cdfd89eda87';
+const DOCUMENTS_API = 'https://functions.poehali.dev/4ce44caf-e09f-47bf-a97f-8107551e318d';
 
 interface Document {
   id: string;
@@ -42,13 +42,16 @@ export default function DocumentsSection() {
     }
   };
 
+  const ALLOWED_EXTENSIONS = ['pdf', 'doc', 'docx', 'rtf'];
+
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      if (file.type === 'application/pdf') {
+      const ext = file.name.split('.').pop()?.toLowerCase() || '';
+      if (ALLOWED_EXTENSIONS.includes(ext)) {
         setUploadForm({ ...uploadForm, file });
       } else {
-        alert('Пожалуйста, выберите PDF файл');
+        alert('Пожалуйста, выберите файл в формате PDF, DOC, DOCX или RTF');
       }
     }
   };
@@ -65,13 +68,16 @@ export default function DocumentsSection() {
       reader.onload = async (e) => {
         const base64 = e.target?.result?.toString().split(',')[1];
         
+        const extension = uploadForm.file?.name.split('.').pop()?.toLowerCase() || 'pdf';
+
         const response = await fetch(DOCUMENTS_API, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             title: uploadForm.title,
             category: uploadForm.category,
-            file: base64
+            file: base64,
+            extension
           })
         });
 
@@ -198,10 +204,10 @@ export default function DocumentsSection() {
               </div>
 
               <div>
-                <label className="text-sm font-medium mb-2 block">PDF файл</label>
+                <label className="text-sm font-medium mb-2 block">Файл документа (PDF, DOC, DOCX, RTF)</label>
                 <Input
                   type="file"
-                  accept=".pdf"
+                  accept=".pdf,.doc,.docx,.rtf"
                   onChange={handleFileSelect}
                 />
                 {uploadForm.file && (
