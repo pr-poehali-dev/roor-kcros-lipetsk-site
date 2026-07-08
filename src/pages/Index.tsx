@@ -133,7 +133,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="РООР КЦРОС" className="h-12 w-auto" />
+              <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="РООР КЦРОС" className="h-12 w-auto" />
               <div>
                 <h1 className="text-xl font-bold">РООР КЦРОС</h1>
                 <p className="text-sm text-gray-300">Координационный центр руководителей охранных структур</p>
@@ -205,7 +205,7 @@ const Index = () => {
             <section className="bg-gradient-to-br from-primary/10 to-accent/5 rounded-lg p-8 md:p-12">
               <div className="max-w-3xl">
                 <div className="flex items-start gap-4 mb-6">
-                  <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="РООР КЦРОС" className="h-20 w-auto" />
+                  <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="РООР КЦРОС" className="h-20 w-auto" />
                   <div>
                     <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-2">
                       Региональное отраслевое объединение работодателей
@@ -231,7 +231,7 @@ const Index = () => {
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Документы" className="h-full w-auto" />
+                    <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="Документы" className="h-full w-auto" />
                   </div>
                   <CardTitle>Документы</CardTitle>
                   <CardDescription>Нормативные акты и регламенты</CardDescription>
@@ -247,7 +247,7 @@ const Index = () => {
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Реестры" className="h-full w-auto" />
+                    <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="Реестры" className="h-full w-auto" />
                   </div>
                   <CardTitle>Реестры</CardTitle>
                   <CardDescription>База данных организаций региона</CardDescription>
@@ -263,7 +263,7 @@ const Index = () => {
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="Новости" className="h-full w-auto" />
+                    <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="Новости" className="h-full w-auto" />
                   </div>
                   <CardTitle>Новости</CardTitle>
                   <CardDescription>События и объявления</CardDescription>
@@ -904,13 +904,13 @@ const Index = () => {
 
       <footer className="bg-secondary text-white mt-16 py-12 border-t border-border relative overflow-hidden">
         <div className="absolute right-0 bottom-0 opacity-5 pointer-events-none">
-          <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="" className="h-64 w-auto" />
+          <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="" className="h-64 w-auto" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
-                <img src="https://cdn.poehali.dev/files/РООР Герб.png" alt="РООР КЦРОС" className="h-16 w-auto" />
+                <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="РООР КЦРОС" className="h-16 w-auto" />
                 <div>
                   <h3 className="font-bold text-xl mb-1">РООР КЦРОС</h3>
                   <p className="text-sm text-gray-300">Липецкая область</p>
