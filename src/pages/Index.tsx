@@ -961,8 +961,16 @@ const Index = () => {
               </ul>
             </div>
           </div>
-          <div className="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">
+          <div className="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400 space-y-3">
             <p>&copy; 2024 РООР КЦРОС Липецкой области. Все права защищены.</p>
+            <div className="flex items-center justify-center gap-4">
+              <a href="/cookie-policy" className="hover:text-primary transition-colors underline">
+                Политика cookie
+              </a>
+              <a href="/terms-of-use" className="hover:text-primary transition-colors underline">
+                Пользовательское соглашение
+              </a>
+            </div>
           </div>
         </div>
       </footer>

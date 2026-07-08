@@ -26,7 +26,15 @@ const CookieConsent = () => {
       <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center gap-4">
         <Icon name="Cookie" size={28} className="hidden sm:block shrink-0 text-white/80" />
         <p className="text-sm text-gray-200 flex-1 text-center sm:text-left">
-          Мы используем файлы cookie для улучшения работы сайта и анализа посещаемости. Продолжая пользоваться сайтом, вы соглашаетесь с политикой обработки персональных данных.
+          Мы используем файлы cookie для улучшения работы сайта и анализа посещаемости. Продолжая пользоваться сайтом, вы соглашаетесь с{' '}
+          <a href="/cookie-policy" className="underline hover:text-white">
+            политикой использования cookie
+          </a>{' '}
+          и{' '}
+          <a href="/terms-of-use" className="underline hover:text-white">
+            пользовательским соглашением
+          </a>
+          .
         </p>
         <Button
           onClick={handleAccept}
