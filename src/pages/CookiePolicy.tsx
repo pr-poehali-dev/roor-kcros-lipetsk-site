@@ -55,6 +55,14 @@ const CookiePolicy = () => {
         По всем вопросам, связанным с использованием cookie, вы можете обратиться к нам по адресу
         электронной почты: <a href="mailto:roorktsros@yandex.ru" className="text-primary underline">roorktsros@yandex.ru</a>
       </p>
+
+      <h2 className="text-lg font-semibold text-secondary pt-4">7. Реквизиты организации</h2>
+      <p>
+        РООР «КЦРОС Липецкой области»<br />
+        ИНН: 4825123473<br />
+        ОГРН: 1174827005990<br />
+        Юридический адрес: 398001, Липецкая область, г. Липецк, ул. Тельмана, д. 92, оф. 1
+      </p>
     </LegalPageLayout>
   );
 };
