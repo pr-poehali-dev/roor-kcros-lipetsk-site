@@ -3,7 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
+import DocumentsSection from '@/components/DocumentsSection';
 
 interface Organization {
   id: string;
@@ -128,68 +130,83 @@ const AdminPanel = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold">Управление реестром</h2>
-        <Button onClick={() => setIsCreating(true)}>
-          <Icon name="Plus" size={16} className="mr-2" />
-          Добавить организацию
-        </Button>
-      </div>
+      <h2 className="text-3xl font-bold">Админ-панель</h2>
 
-      {(isCreating || editingOrg) && (
-        <OrganizationForm
-          organization={editingOrg}
-          onSave={editingOrg ? handleUpdate : handleCreate}
-          onCancel={() => {
-            setIsCreating(false);
-            setEditingOrg(null);
-          }}
-        />
-      )}
+      <Tabs defaultValue="registry" className="w-full">
+        <TabsList className="grid w-full grid-cols-2 max-w-md mb-6">
+          <TabsTrigger value="registry">Реестр</TabsTrigger>
+          <TabsTrigger value="documents">Документы</TabsTrigger>
+        </TabsList>
 
-      <div className="space-y-4">
-        {organizations.map((org) => (
-          <Card key={org.id}>
-            <CardHeader>
-              <div className="flex items-start justify-between">
-                <div>
-                  <CardTitle className="text-lg">{org.name}</CardTitle>
-                  <p className="text-sm text-muted-foreground">ИНН: {org.inn}</p>
-                </div>
-                <Badge variant={org.status === 'Активно' ? 'default' : 'secondary'}>
-                  {org.status}
-                </Badge>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center justify-between">
-                <div className="space-y-1 text-sm">
-                  <p className="text-muted-foreground">Категория: {org.category}</p>
-                  <p className="text-muted-foreground">
-                    Дата регистрации: {new Date(org.registration_date).toLocaleDateString('ru-RU')}
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setEditingOrg(org)}
-                  >
-                    <Icon name="Pencil" size={16} />
-                  </Button>
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    onClick={() => handleDelete(org.id)}
-                  >
-                    <Icon name="Trash2" size={16} />
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+        <TabsContent value="registry" className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h3 className="text-2xl font-bold">Управление реестром</h3>
+            <Button onClick={() => setIsCreating(true)}>
+              <Icon name="Plus" size={16} className="mr-2" />
+              Добавить организацию
+            </Button>
+          </div>
+
+          {(isCreating || editingOrg) && (
+            <OrganizationForm
+              organization={editingOrg}
+              onSave={editingOrg ? handleUpdate : handleCreate}
+              onCancel={() => {
+                setIsCreating(false);
+                setEditingOrg(null);
+              }}
+            />
+          )}
+
+          <div className="space-y-4">
+            {organizations.map((org) => (
+              <Card key={org.id}>
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <CardTitle className="text-lg">{org.name}</CardTitle>
+                      <p className="text-sm text-muted-foreground">ИНН: {org.inn}</p>
+                    </div>
+                    <Badge variant={org.status === 'Активно' ? 'default' : 'secondary'}>
+                      {org.status}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <div className="space-y-1 text-sm">
+                      <p className="text-muted-foreground">Категория: {org.category}</p>
+                      <p className="text-muted-foreground">
+                        Дата регистрации: {new Date(org.registration_date).toLocaleDateString('ru-RU')}
+                      </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setEditingOrg(org)}
+                      >
+                        <Icon name="Pencil" size={16} />
+                      </Button>
+                      <Button
+                        variant="destructive"
+                        size="sm"
+                        onClick={() => handleDelete(org.id)}
+                      >
+                        <Icon name="Trash2" size={16} />
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="documents">
+          <DocumentsSection isAdmin />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

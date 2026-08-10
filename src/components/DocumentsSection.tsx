@@ -18,7 +18,11 @@ interface Document {
   icon?: string;
 }
 
-export default function DocumentsSection() {
+interface DocumentsSectionProps {
+  isAdmin?: boolean;
+}
+
+export default function DocumentsSection({ isAdmin = false }: DocumentsSectionProps) {
   const [documents, setDocuments] = useState<Document[]>([]);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const [uploadForm, setUploadForm] = useState({ 
@@ -121,7 +125,7 @@ export default function DocumentsSection() {
     return 'FileText';
   };
 
-  const DocumentCard = ({ doc, isAdmin }: { doc: Document, isAdmin?: boolean }) => (
+  const DocumentCard = ({ doc }: { doc: Document }) => (
     <Card className="hover:shadow-lg transition-shadow">
       <CardContent className="p-6">
         <div className="flex items-start justify-between">
@@ -153,6 +157,11 @@ export default function DocumentsSection() {
               <Icon name="Download" size={16} className="mr-2" />
               Скачать
             </Button>
+            {isAdmin && (
+              <Button variant="destructive" size="sm" onClick={() => handleDelete(doc.id)}>
+                <Icon name="Trash2" size={16} />
+              </Button>
+            )}
           </div>
         </div>
       </CardContent>
@@ -161,15 +170,23 @@ export default function DocumentsSection() {
 
   return (
     <div className="space-y-6 animate-fade-in max-w-6xl">
-      <div>
-        <h2 className="text-3xl font-bold text-secondary mb-4">Документы</h2>
-        <div className="h-1 w-20 bg-primary rounded mb-6"></div>
-        <p className="text-muted-foreground mb-8">
-          Нормативные акты, учредительные документы, договоры и регламенты организации
-        </p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h2 className="text-3xl font-bold text-secondary mb-4">Документы</h2>
+          <div className="h-1 w-20 bg-primary rounded mb-6"></div>
+          <p className="text-muted-foreground mb-8">
+            Нормативные акты, учредительные документы, договоры и регламенты организации
+          </p>
+        </div>
+        {isAdmin && !isUploadModalOpen && (
+          <Button onClick={() => setIsUploadModalOpen(true)}>
+            <Icon name="Plus" size={16} className="mr-2" />
+            Загрузить документ
+          </Button>
+        )}
       </div>
 
-      {isUploadModalOpen && (
+      {isAdmin && isUploadModalOpen && (
         <Card className="border-primary">
           <CardContent className="p-6">
             <div className="space-y-4">
