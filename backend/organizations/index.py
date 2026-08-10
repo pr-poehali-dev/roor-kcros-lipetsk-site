@@ -35,6 +35,7 @@ def handler(event: dict, context) -> dict:
             cur.execute(f"""
                 SELECT id, name, inn, status, category, registration_date, created_at, updated_at
                 FROM {schema}.organizations
+                WHERE is_member = TRUE
                 ORDER BY created_at DESC
             """)
             
