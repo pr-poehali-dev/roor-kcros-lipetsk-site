@@ -188,7 +188,7 @@ const MainContent = ({
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Представление интересов охранных предприятий</span>
+                      <span className="text-muted-foreground">Консолидация усилий членов Регионального объединения на создание условий и эффективное функционирование системы социального партнерства в сфере социально-трудовых отношений</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
