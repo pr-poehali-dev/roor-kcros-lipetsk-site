@@ -192,7 +192,7 @@ const MainContent = ({
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Методическая и правовая поддержка участников</span>
+                      <span className="text-muted-foreground">Содействие в создании полноценных рыночных структур и механизмов</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
