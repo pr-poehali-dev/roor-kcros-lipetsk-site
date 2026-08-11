@@ -225,7 +225,7 @@ const MainContent = ({
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Network" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Взаимодействие с органами власти</span>
+                      <span className="text-muted-foreground">Проведение социальных исследований в сфере охранной деятельности и системы безопасности</span>
                     </li>
                   </ul>
                 </CardContent>
