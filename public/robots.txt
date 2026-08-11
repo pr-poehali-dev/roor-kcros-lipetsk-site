@@ -1,6 +1,9 @@
 User-agent: Googlebot
 Allow: /
 
+User-agent: Yandex
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
@@ -10,5 +13,17 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: TelegramBot
+Allow: /
+
+User-agent: vkShare
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
 User-agent: *
 Allow: /
+
+Host: https://xn--48-1lcqjh6a.xn--p1ai
+Sitemap: https://xn--48-1lcqjh6a.xn--p1ai/sitemap.xml
