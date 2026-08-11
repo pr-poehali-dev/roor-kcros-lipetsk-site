@@ -221,7 +221,7 @@ const MainContent = ({
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="GraduationCap" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Обучение охранников</span>
+                      <span className="text-muted-foreground">Содействие в организации подготовки и повышении квалификации кадров, воспитании их в духе неуклонного соблюдения законности, моральных норм и профессиональной этики</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Network" size={20} className="text-primary mt-0.5 flex-shrink-0" />
