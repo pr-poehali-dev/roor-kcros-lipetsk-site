@@ -213,7 +213,7 @@ const MainContent = ({
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <Icon name="ShieldCheck" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Физическая охрана объектов</span>
+                      <span className="text-muted-foreground">Внедрение новых технологий в области профессиональной (корпоративной) этики сотрудничества и поведения участников негосударственной охранной деятельности</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Video" size={20} className="text-primary mt-0.5 flex-shrink-0" />
