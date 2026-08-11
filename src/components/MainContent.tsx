@@ -184,7 +184,7 @@ const MainContent = ({
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Координация деятельности охранных организаций</span>
+                      <span className="text-muted-foreground">Представительство и защита прав и охраняемых законом интересов членов Регионального объединения</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
