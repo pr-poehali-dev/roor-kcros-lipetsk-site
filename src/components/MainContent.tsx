@@ -196,7 +196,7 @@ const MainContent = ({
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Профессиональная подготовка и аттестация</span>
+                      <span className="text-muted-foreground">Содействие социально-экономическому развитию, решению проблем безопасности людей, объектов и инфраструктуры городов и иных населенных пунктов</span>
                     </li>
                   </ul>
                 </CardContent>
