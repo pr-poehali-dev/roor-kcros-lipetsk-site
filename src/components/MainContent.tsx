@@ -217,7 +217,7 @@ const MainContent = ({
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Video" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">Технические средства безопасности</span>
+                      <span className="text-muted-foreground">Содействие повышению престижа профессии частного охранника, участие в определении квалификационных требований, позволяющих заниматься частной охранной деятельностью</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="GraduationCap" size={20} className="text-primary mt-0.5 flex-shrink-0" />
