@@ -125,15 +125,15 @@ export default function DocumentsSection({ isAdmin = false }: DocumentsSectionPr
 
   const DocumentCard = ({ doc }: { doc: Document }) => (
     <Card className="hover:shadow-lg transition-shadow">
-      <CardContent className="p-6">
-        <div className="flex items-start justify-between">
-          <div className="flex items-start gap-4 flex-1">
+      <CardContent className="p-4 md:p-6">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+          <div className="flex items-start gap-4 flex-1 min-w-0">
             <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
               <Icon name={getIconForCategory(doc.category) as any} size={24} className="text-primary" />
             </div>
-            <div className="flex-1">
-              <h3 className="font-semibold text-lg mb-1">{doc.title || 'Без названия'}</h3>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-base md:text-lg mb-2 break-words">{doc.title || 'Без названия'}</h3>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
                 {doc.category && <Badge variant="outline">{doc.category}</Badge>}
                 <span className="flex items-center gap-1">
                   <Icon name="Calendar" size={14} />
@@ -146,7 +146,7 @@ export default function DocumentsSection({ isAdmin = false }: DocumentsSectionPr
               </div>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-shrink-0">
             <Button variant="outline" size="sm" onClick={() => window.open(doc.url, '_blank')}>
               <Icon name="Eye" size={16} className="mr-2" />
               Просмотр
@@ -173,7 +173,7 @@ export default function DocumentsSection({ isAdmin = false }: DocumentsSectionPr
           <h2 className="text-3xl font-bold text-secondary mb-4">Документы</h2>
           <div className="h-1 w-20 bg-primary rounded mb-6"></div>
           <p className="text-muted-foreground mb-8">
-            Нормативные акты, учредительные документы, договоры и регламенты организации
+            Учредительные документы, нормативные акты и регламенты организации
           </p>
         </div>
         {isAdmin && !isUploadModalOpen && (
@@ -243,12 +243,14 @@ export default function DocumentsSection({ isAdmin = false }: DocumentsSectionPr
       )}
 
       <Tabs defaultValue="all" className="w-full">
-        <TabsList className="grid w-full grid-cols-3 mb-6">
-          <TabsTrigger value="all">Все документы ({documents.length})</TabsTrigger>
-          <TabsTrigger value="founding">
+        <TabsList className="grid w-full grid-cols-3 mb-6 h-auto">
+          <TabsTrigger value="all" className="text-xs md:text-sm whitespace-normal py-2">
+            Все ({documents.length})
+          </TabsTrigger>
+          <TabsTrigger value="founding" className="text-xs md:text-sm whitespace-normal py-2">
             Учредительные ({documents.filter(d => d.category?.includes('Учредительные')).length})
           </TabsTrigger>
-          <TabsTrigger value="regulations">
+          <TabsTrigger value="regulations" className="text-xs md:text-sm whitespace-normal py-2">
             Регламенты ({documents.filter(d => d.category?.includes('Регламенты')).length})
           </TabsTrigger>
         </TabsList>
