@@ -150,7 +150,7 @@ const MainContent = ({
         {activeSection === 'about' && (
           <div className="space-y-8 animate-fade-in max-w-4xl">
             <div>
-              <h2 className="text-3xl font-bold text-secondary mb-4">О организации</h2>
+              <h2 className="text-3xl font-bold text-secondary mb-4">Об организации</h2>
               <div className="h-1 w-20 bg-primary rounded mb-6"></div>
             </div>
 
@@ -162,9 +162,9 @@ const MainContent = ({
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">РООР КЦРОС Липецкой области — региональное отраслевое объединение работодателей - вид ассоциации, основанной на добровольном членстве юридических лиц в сфере охраны и безопасности. Объединение является социально ориентированной некоммерческой организацией. 
+                <p className="text-muted-foreground leading-relaxed">РООР КЦРОС Липецкой области — региональное отраслевое объединение работодателей — вид ассоциации, основанной на добровольном членстве юридических лиц в сфере охраны и безопасности. Объединение является социально ориентированной некоммерческой организацией. 
 
-Объединение осуществляет свою деятельность независимо от органов государственной власти, органов местного самоуправления, профессиональных союзов и их объединений, политических партий движений, других общественных организаций (объединений).</p>
+Объединение осуществляет свою деятельность независимо от органов государственной власти, органов местного самоуправления, профессиональных союзов и их объединений, политических партий и движений, других общественных организаций (объединений).</p>
                 <p className="text-muted-foreground leading-relaxed">
                   Мы работаем над развитием охранной отрасли, повышением профессионального уровня специалистов
                   и обеспечением безопасности объектов на территории Липецкой области.
@@ -183,19 +183,19 @@ const MainContent = ({
                 <CardContent>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <Icon name="Gavel" size={20} className="text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-muted-foreground">Представительство и защита прав и охраняемых законом интересов членов Регионального объединения</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <Icon name="Handshake" size={20} className="text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-muted-foreground">Консолидация усилий членов Регионального объединения на создание условий и эффективное функционирование системы социального партнерства в сфере социально-трудовых отношений</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <Icon name="TrendingUp" size={20} className="text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-muted-foreground">Содействие в создании полноценных рыночных структур и механизмов</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <Icon name="Building2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-muted-foreground">Содействие социально-экономическому развитию, решению проблем безопасности людей, объектов и инфраструктуры городов и иных населенных пунктов</span>
                     </li>
                   </ul>
@@ -205,7 +205,7 @@ const MainContent = ({
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Icon name="Target" size={24} className="text-primary" />
+                    <Icon name="Compass" size={24} className="text-primary" />
                     Ключевые направления
                   </CardTitle>
                 </CardHeader>
@@ -334,14 +334,14 @@ const MainContent = ({
                     г. Липецк, ул. Тельмана, д. 92, оф. 1
                   </p>
                   <div className="space-y-2">
-                    <div className="flex items-center gap-2">
+                    <a href="tel:+79191610030" className="flex items-center gap-2 group">
                       <Icon name="Phone" size={18} className="text-primary" />
-                      <span className="text-muted-foreground">+7-919-161-00-30</span>
-                    </div>
-                    <div className="flex items-center gap-2">
+                      <span className="text-muted-foreground group-hover:text-primary transition-colors">+7-919-161-00-30</span>
+                    </a>
+                    <a href="mailto:roorktsros@yandex.ru" className="flex items-center gap-2 group">
                       <Icon name="Mail" size={18} className="text-primary" />
-                      <span className="text-muted-foreground">roorktsros@yandex.ru</span>
-                    </div>
+                      <span className="text-muted-foreground group-hover:text-primary transition-colors break-all">roorktsros@yandex.ru</span>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -366,10 +366,10 @@ const MainContent = ({
                     <p className="text-sm text-muted-foreground mb-2">по Липецкой области</p>
                     <p className="font-semibold text-lg">Воронов Сергей Викторович</p>
                   </div>
-                  <div className="flex items-center justify-center gap-2 pt-2">
+                  <a href="tel:+79191610030" className="flex items-center justify-center gap-2 pt-2 group">
                     <Icon name="Phone" size={18} className="text-primary" />
-                    <span className="text-muted-foreground">+7-919-161-00-30</span>
-                  </div>
+                    <span className="text-muted-foreground group-hover:text-primary transition-colors">+7-919-161-00-30</span>
+                  </a>
                 </CardContent>
               </Card>
             </div>

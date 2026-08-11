@@ -49,19 +49,23 @@ const SiteFooter = ({ setActiveSection }: SiteFooterProps) => {
                 <Icon name="MapPin" size={16} className="mt-1 flex-shrink-0" />
                 <span>г. Липецк, ул. Тельмана, д. 92, оф. 1</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Icon name="Phone" size={16} />
-                +7-919-161-00-30
+              <li>
+                <a href="tel:+79191610030" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Icon name="Phone" size={16} />
+                  +7-919-161-00-30
+                </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Icon name="Mail" size={16} />
-                roorktsros@yandex.ru
+              <li>
+                <a href="mailto:roorktsros@yandex.ru" className="flex items-center gap-2 hover:text-white transition-colors">
+                  <Icon name="Mail" size={16} className="flex-shrink-0" />
+                  <span className="break-all">roorktsros@yandex.ru</span>
+                </a>
               </li>
             </ul>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-sm text-gray-400 space-y-3">
-          <p>&copy; 2024 РООР КЦРОС Липецкой области. Все права защищены.</p>
+          <p>&copy; {new Date().getFullYear()} РООР КЦРОС Липецкой области. Все права защищены.</p>
           <div className="flex items-center justify-center gap-4">
             <a href="/cookie-policy" className="hover:text-primary transition-colors underline">
               Политика cookie
