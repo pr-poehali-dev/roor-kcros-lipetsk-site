@@ -14,7 +14,7 @@ const LegalPageLayout = ({ title, children }: LegalPageLayoutProps) => {
           <div className="flex items-center justify-between">
             <a href="/" className="flex items-center gap-3">
               <img
-                src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png"
+                src="/emblem-shield.png"
                 alt="РООР КЦРОС"
                 className="h-12 w-auto"
               />

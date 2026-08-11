@@ -31,7 +31,7 @@ const SiteHeader = ({ activeSection, setActiveSection }: SiteHeaderProps) => {
             className="flex items-center gap-3 text-left"
           >
             <img
-              src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png"
+              src="/emblem-shield.png"
               alt="РООР КЦРОС"
               className="h-10 md:h-12 w-auto flex-shrink-0"
             />

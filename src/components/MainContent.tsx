@@ -52,26 +52,28 @@ const MainContent = ({
         {activeSection === 'home' && (
           <div className="space-y-8 animate-fade-in">
             <section className="bg-gradient-to-br from-primary/10 to-accent/5 rounded-lg p-8 md:p-12">
-              <div className="max-w-3xl">
-                <div className="flex items-start gap-4 mb-6">
-                  <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="РООР КЦРОС" className="h-20 w-auto" />
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-2">
-                      Региональное отраслевое объединение работодателей
-                    </h2>
+              <div className="max-w-4xl flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
+                <img
+                  src="/emblem-full.png"
+                  alt="РООР КЦРОС Липецкой области"
+                  className="h-48 md:h-64 w-auto flex-shrink-0 drop-shadow-sm"
+                />
+                <div className="text-center md:text-left">
+                  <h2 className="text-2xl md:text-4xl font-bold text-secondary mb-3">
+                    Региональное отраслевое объединение работодателей
+                  </h2>
+                  <p className="text-base md:text-lg text-muted-foreground mb-6">
+                    Координационный центр руководителей охранных структур Липецкой области
+                  </p>
+                  <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                    <Button onClick={() => setActiveSection('documents')} size="lg" className="shadow-md">
+                      <Icon name="FileText" size={20} className="mr-2" />
+                      Документы
+                    </Button>
+                    <Button onClick={() => setActiveSection('about')} variant="outline" size="lg">
+                      Подробнее
+                    </Button>
                   </div>
-                </div>
-                <p className="text-lg text-muted-foreground mb-6 ml-24">
-                  Координационный центр руководителей охранных структур Липецкой области
-                </p>
-                <div className="flex flex-wrap gap-4 ml-24">
-                  <Button onClick={() => setActiveSection('documents')} size="lg" className="shadow-md">
-                    <Icon name="FileText" size={20} className="mr-2" />
-                    Документы
-                  </Button>
-                  <Button onClick={() => setActiveSection('about')} variant="outline" size="lg">
-                    Подробнее
-                  </Button>
                 </div>
               </div>
             </section>
@@ -80,7 +82,7 @@ const MainContent = ({
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="Документы" className="h-full w-auto" />
+                    <img src="/emblem-shield.png" alt="Документы" className="h-full w-auto" />
                   </div>
                   <CardTitle>Документы</CardTitle>
                   <CardDescription>Нормативные акты и регламенты</CardDescription>
@@ -96,7 +98,7 @@ const MainContent = ({
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="Новости" className="h-full w-auto" />
+                    <img src="/emblem-shield.png" alt="Новости" className="h-full w-auto" />
                   </div>
                   <CardTitle>Новости</CardTitle>
                   <CardDescription>События и объявления</CardDescription>
