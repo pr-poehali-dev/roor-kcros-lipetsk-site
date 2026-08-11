@@ -205,18 +205,18 @@ const MainContent = ({
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
-                    <Icon name="Award" size={24} className="text-primary" />
+                    <Icon name="Target" size={24} className="text-primary" />
                     Ключевые направления
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
-                      <Icon name="ShieldCheck" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <Icon name="Scale" size={20} className="text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-muted-foreground">Внедрение новых технологий в области профессиональной (корпоративной) этики сотрудничества и поведения участников негосударственной охранной деятельности</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Video" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <Icon name="Award" size={20} className="text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-muted-foreground">Содействие повышению престижа профессии частного охранника, участие в определении квалификационных требований, позволяющих заниматься частной охранной деятельностью</span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -224,7 +224,7 @@ const MainContent = ({
                       <span className="text-muted-foreground">Содействие в организации подготовки и повышении квалификации кадров, воспитании их в духе неуклонного соблюдения законности, моральных норм и профессиональной этики</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Network" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <Icon name="ChartLine" size={20} className="text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-muted-foreground">Проведение социальных исследований в сфере охранной деятельности и системы безопасности</span>
                     </li>
                   </ul>
