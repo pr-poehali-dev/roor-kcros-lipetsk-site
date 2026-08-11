@@ -31,11 +31,6 @@ const SiteFooter = ({ setActiveSection }: SiteFooterProps) => {
                 <button onClick={() => setActiveSection('about')} className="text-gray-300 hover:text-primary transition-colors">Об организации</button>
               </li>
               <li>
-                <button onClick={() => setActiveSection('registry')} className="text-gray-300 hover:text-primary transition-colors">
-                  Реестры
-                </button>
-              </li>
-              <li>
                 <button onClick={() => setActiveSection('documents')} className="text-gray-300 hover:text-primary transition-colors">
                   Документы
                 </button>

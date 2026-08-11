@@ -201,10 +201,6 @@ def get_content_type(extension: str) -> str:
 def get_icon_for_category(category: str) -> str:
     if 'Учредительные' in category:
         return 'FileText'
-    elif 'Договоры' in category:
-        return 'FileCheck'
-    elif 'Лицензионные' in category:
-        return 'Shield'
     elif 'Регламенты' in category:
         return 'BookOpen'
     return 'FileText'

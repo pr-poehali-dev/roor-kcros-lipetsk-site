@@ -33,14 +33,6 @@ const SiteHeader = ({ activeSection, setActiveSection }: SiteHeaderProps) => {
               }`}
             >Об организации</button>
             <button
-              onClick={() => setActiveSection('registry')}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                activeSection === 'registry' ? 'text-primary' : 'text-white'
-              }`}
-            >
-              Реестры
-            </button>
-            <button
               onClick={() => setActiveSection('news')}
               className={`text-sm font-medium transition-colors hover:text-primary ${
                 activeSection === 'news' ? 'text-primary' : 'text-white'

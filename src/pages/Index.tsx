@@ -5,18 +5,9 @@ import SiteFooter from '@/components/SiteFooter';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const [searchQuery, setSearchQuery] = useState('');
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [formMessage, setFormMessage] = useState('');
-
-  const registryData = [
-    { id: 1, name: 'ЧОП "Барс-Липецк"', inn: '4825012345', status: 'Активно', category: 'Частная охрана', date: '15.01.2024' },
-    { id: 2, name: 'ООО "Охранное предприятие Щит"', inn: '4826023456', status: 'Активно', category: 'Физическая охрана', date: '20.02.2024' },
-    { id: 3, name: 'ЧОП "Сокол"', inn: '482701234567', status: 'Приостановлено', category: 'Частная охрана', date: '10.03.2024' },
-    { id: 4, name: 'ООО "Безопасность-48"', inn: '4828034567', status: 'Активно', category: 'Охранные системы', date: '05.04.2024' },
-    { id: 5, name: 'ЧОП "Страж"', inn: '4829045678', status: 'Активно', category: 'Частная охрана', date: '12.05.2024' },
-  ];
 
   const newsData = [
     { 
@@ -115,12 +106,6 @@ const Index = () => {
 Надеемся, что наш сайт оставит у Вас приятные впечатления и принесёт пользу в получении необходимой информации о нас и наших возможностях!`
     },
   ];
-
-  const filteredRegistry = registryData.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.inn.includes(searchQuery) ||
-    item.category.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <div className="min-h-screen bg-background">

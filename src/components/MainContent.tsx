@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 import DocumentsSection from '@/components/DocumentsSection';
 import AdminPanel from '@/components/AdminPanel';
-import RegistrySection from '@/components/RegistrySection';
 
 interface NewsItem {
   id: number;
@@ -67,9 +66,9 @@ const MainContent = ({
                   Координационный центр руководителей охранных структур Липецкой области
                 </p>
                 <div className="flex flex-wrap gap-4 ml-24">
-                  <Button onClick={() => setActiveSection('registry')} size="lg" className="shadow-md">
-                    <Icon name="Database" size={20} className="mr-2" />
-                    Реестры организаций
+                  <Button onClick={() => setActiveSection('documents')} size="lg" className="shadow-md">
+                    <Icon name="FileText" size={20} className="mr-2" />
+                    Документы
                   </Button>
                   <Button onClick={() => setActiveSection('about')} variant="outline" size="lg">
                     Подробнее
@@ -78,7 +77,7 @@ const MainContent = ({
               </div>
             </section>
 
-            <section className="grid md:grid-cols-3 gap-6">
+            <section className="grid md:grid-cols-2 gap-6">
               <Card className="hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
@@ -90,22 +89,6 @@ const MainContent = ({
                 <CardContent>
                   <Button variant="link" className="p-0 h-auto" onClick={() => setActiveSection('documents')}>
                     Перейти к документам
-                    <Icon name="ArrowRight" size={16} className="ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-2 p-1">
-                    <img src="https://cdn.poehali.dev/files/%D0%A0%D0%9E%D0%9E%D0%A0%20%D0%93%D0%B5%D1%80%D0%B1.png" alt="Реестры" className="h-full w-auto" />
-                  </div>
-                  <CardTitle>Реестры</CardTitle>
-                  <CardDescription>База данных организаций региона</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="link" className="p-0 h-auto" onClick={() => setActiveSection('registry')}>
-                    Открыть реестры
                     <Icon name="ArrowRight" size={16} className="ml-2" />
                   </Button>
                 </CardContent>
@@ -247,12 +230,6 @@ const MainContent = ({
                 </CardContent>
               </Card>
             </div>
-          </div>
-        )}
-
-        {activeSection === 'registry' && (
-          <div className="animate-fade-in max-w-6xl">
-            <RegistrySection />
           </div>
         )}
 

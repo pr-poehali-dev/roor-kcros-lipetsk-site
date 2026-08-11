@@ -119,8 +119,6 @@ export default function DocumentsSection({ isAdmin = false }: DocumentsSectionPr
   const getIconForCategory = (category?: string) => {
     if (!category) return 'FileText';
     if (category.includes('Учредительные')) return 'FileText';
-    if (category.includes('Договоры')) return 'FileCheck';
-    if (category.includes('Лицензионные')) return 'Shield';
     if (category.includes('Регламенты')) return 'BookOpen';
     return 'FileText';
   };
@@ -214,8 +212,6 @@ export default function DocumentsSection({ isAdmin = false }: DocumentsSectionPr
                   onChange={(e) => setUploadForm({ ...uploadForm, category: e.target.value })}
                 >
                   <option>Учредительные документы</option>
-                  <option>Договоры и соглашения</option>
-                  <option>Лицензионные требования</option>
                   <option>Регламенты и инструкции</option>
                 </select>
               </div>
@@ -247,16 +243,10 @@ export default function DocumentsSection({ isAdmin = false }: DocumentsSectionPr
       )}
 
       <Tabs defaultValue="all" className="w-full">
-        <TabsList className="grid w-full grid-cols-5 mb-6">
+        <TabsList className="grid w-full grid-cols-3 mb-6">
           <TabsTrigger value="all">Все документы ({documents.length})</TabsTrigger>
           <TabsTrigger value="founding">
             Учредительные ({documents.filter(d => d.category?.includes('Учредительные')).length})
-          </TabsTrigger>
-          <TabsTrigger value="contracts">
-            Договоры ({documents.filter(d => d.category?.includes('Договоры')).length})
-          </TabsTrigger>
-          <TabsTrigger value="license">
-            Лицензирование ({documents.filter(d => d.category?.includes('Лицензионные')).length})
           </TabsTrigger>
           <TabsTrigger value="regulations">
             Регламенты ({documents.filter(d => d.category?.includes('Регламенты')).length})
@@ -278,18 +268,6 @@ export default function DocumentsSection({ isAdmin = false }: DocumentsSectionPr
 
         <TabsContent value="founding" className="space-y-4">
           {documents.filter(d => d.category?.includes('Учредительные')).map((doc) => (
-            <DocumentCard key={doc.id} doc={doc} />
-          ))}
-        </TabsContent>
-
-        <TabsContent value="contracts" className="space-y-4">
-          {documents.filter(d => d.category?.includes('Договоры')).map((doc) => (
-            <DocumentCard key={doc.id} doc={doc} />
-          ))}
-        </TabsContent>
-
-        <TabsContent value="license" className="space-y-4">
-          {documents.filter(d => d.category?.includes('Лицензионные')).map((doc) => (
             <DocumentCard key={doc.id} doc={doc} />
           ))}
         </TabsContent>
